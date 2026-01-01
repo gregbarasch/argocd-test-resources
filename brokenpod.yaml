@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: broken-pod
+  namespace: argocd-test
+spec:
+  containers:
+    - name: c
+      image: nginx
+      envFrom:
+        - configMapRef:
+            name: missing-config
